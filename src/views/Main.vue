@@ -1,7 +1,7 @@
 <template>
   <div class="main">
-    <SearchContainer />
-    <Matches />
+    <SearchContainer :getSWData="getSWData" :searching="searching"/>
+    <Matches :searching="searching"/>
   </div>
 </template>
 
@@ -15,7 +15,15 @@ export default {
     Matches
   },
   data() {
-    return {};
+    return {
+      searching: false
+    };
+  },
+  methods: {
+    getSWData(query, option) {
+      this.searching = true;
+      console.log(query, option);
+    }
   }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="SearchContainer">
     <p class="What-are-you-searching-for">What are you searching for?</p>
-    <form>
+    <form v-on:submit="SWFormSubmit()">
       <input type="radio" class="Ellipse" id="People" v-model="option" value="People">
       <label for="People" class="People">People</label>
       <input type="radio" class="Ellipse" id="Movies" v-model="option" value="Movies">
@@ -15,6 +15,7 @@
 <script>
 export default {
   name: "SearchContainer",
+  props: ["getSWData", "searching"],
   data() {
     return {
       option: "People",
@@ -39,6 +40,11 @@ export default {
         return "SearchButton-Disabled";
       }
       return "SearchButton-Enabled";
+    }
+  },
+  methods: {
+    SWFormSubmit: function() {
+      this.getSWData(this.query, this.option);
     }
   }
 };
@@ -149,5 +155,10 @@ input::placeholder {
   line-height: normal;
   letter-spacing: normal;
   color: #c4c4c4;
+}
+
+.text-cursor {
+  width: 8px;
+  height: 23px;
 }
 </style>
