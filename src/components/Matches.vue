@@ -5,20 +5,17 @@
     <template>
       <h3 class="There-are-zero-matches-Use-the-form-to-search-for">{{matchState}}</h3>
     </template>
-    <People :people="people"/>
-    <Movies :movies="movies"/>
+    <People-And-Movies :people="people" :movies="movies"/>
   </div>
 </template>
 
 <script>
-import People from "./People";
-import Movies from "./Movies";
+import PeopleAndMovies from "./PeopleAndMovies";
 export default {
   name: "Matches",
   props: ["searching", "people", "movies"],
   components: {
-    People,
-    Movies
+    PeopleAndMovies
   },
   data() {
     return {};
