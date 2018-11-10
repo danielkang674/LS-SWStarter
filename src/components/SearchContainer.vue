@@ -25,9 +25,8 @@ export default {
     placeholder: function() {
       if (this.option === "People") {
         return "e.g. Chewbacca, Yoda, Boba, Fett";
-      } else {
-        return "e.g. The Empire Strikes Back";
       }
+      return "e.g. The Empire Strikes Back";
     },
     disabled: function() {
       if (this.query === "") {
@@ -139,7 +138,7 @@ export default {
   color: #ffffff;
 }
 
-.eg-Chewbacca-Yoda-Boba-Fett {
+input::placeholder {
   width: 239px;
   height: 18px;
   font-family: Montserrat;
