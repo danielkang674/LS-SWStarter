@@ -2,9 +2,9 @@
   <div class="SearchContainer">
     <p class="What-are-you-searching-for">What are you searching for?</p>
     <form v-on:submit="SWFormSubmit()">
-      <input type="radio" class="Ellipse" id="People" v-model="option" value="People">
+      <input type="radio" class="Ellipse" id="People" v-model="option" value="people">
       <label for="People" class="People">People</label>
-      <input type="radio" class="Ellipse" id="Movies" v-model="option" value="Movies">
+      <input type="radio" class="Ellipse" id="Movies" v-model="option" value="movies">
       <label for="Movies" class="Movies">Movies</label>
       <input type="text" class="Rectangle" v-model="query" :placeholder="placeholder">
       <button type="submit" :class="buttonClass" :disabled="disabled"><span class="SEARCH">SEARCH</span></button>
@@ -18,7 +18,7 @@ export default {
   props: ["getSWData", "searching"],
   data() {
     return {
-      option: "People",
+      option: "people",
       query: ""
     };
   },

@@ -2,18 +2,34 @@
   <div class="MatchesBG">
     <h2 class="Results">Results</h2>
     <div class="divider"></div>
-    <h3 class="There-are-zero-matches-Use-the-form-to-search-for">{{matchState}}</h3>
+    <template>
+      <h3 class="There-are-zero-matches-Use-the-form-to-search-for">{{matchState}}</h3>
+    </template>
+    <People :people="people"/>
+    <Movies :movies="movies"/>
   </div>
 </template>
 
 <script>
+import People from "./People";
+import Movies from "./Movies";
 export default {
   name: "Matches",
+  props: ["searching", "people", "movies"],
+  components: {
+    People,
+    Movies
+  },
   data() {
-    return {
-      matchState:
-        "There are zero matches. Use the form to search for People or Movies."
-    };
+    return {};
+  },
+  computed: {
+    matchState: function() {
+      if (this.Searching) {
+        return "Searching...";
+      }
+      return "There are zero matches. Use the form to search for People or Movies.";
+    }
   }
 };
 </script>

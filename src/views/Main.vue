@@ -1,7 +1,7 @@
 <template>
   <div class="main">
-    <SearchContainer :getSWData="getSWData" :searching="searching"/>
-    <Matches :searching="searching"/>
+    <SearchContainer :getSWData="getSWData" :searching="searching" />
+    <Matches :searching="searching" :people="people" :movies="movies"/>
   </div>
 </template>
 
@@ -19,22 +19,25 @@ export default {
   data() {
     return {
       searching: false,
-      SWData: []
+      people: [],
+      movies: []
     };
   },
   methods: {
     async getSWData(query, option) {
+      this.people = [];
+      this.movies = [];
       this.searching = true;
-      if (option === "People") {
+      if (option === "people") {
         const pplData = await getPeopleService(query);
-        this.SWData = pplData;
-      } else if (option === "Movies") {
+        this.people = pplData;
+      } else if (option === "movies") {
         const moviesData = await getMoviesService(query);
-        this.SWData = moviesData;
+        this.movies = moviesData;
       } else {
         console.log("Unknown option");
       }
-      console.log(this.SWData);
+      console.log(this.people, this.movies);
     }
   }
 };
