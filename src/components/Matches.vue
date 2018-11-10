@@ -3,7 +3,7 @@
     <h2 class="Results">Results</h2>
     <div class="divider"></div>
     <template v-if="showProgress">
-      <p class="search-progress">{{matchState}}</p>
+      <div class="search-progress">{{matchState}}</div>
     </template>
     <People-And-Movies :people="people" :movies="movies"/>
   </div>

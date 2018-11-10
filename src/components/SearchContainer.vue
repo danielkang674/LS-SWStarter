@@ -1,7 +1,7 @@
 <template>
   <div class="SearchContainer">
     <p class="What-are-you-searching-for">What are you searching for?</p>
-    <form v-on:submit="SWFormSubmit()">
+    <form v-on:submit.prevent="SWFormSubmit()">
       <input type="radio" class="Ellipse" id="People" v-model="option" value="people">
       <label for="People" class="People">People</label>
       <input type="radio" class="Ellipse" id="Movies" v-model="option" value="movies">
