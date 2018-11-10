@@ -8,9 +8,8 @@
         <input type="radio" class="Ellipse" id="Movies" v-model="option" value="Movies">
         <label for="Movies" class="Movies">Movies</label>
         <input type="text" class="Rectangle" v-model="query" :placeholder="placeholder">
-        <button type="submit" class="SearchButton-Disabled" :disabled="disabled"><span class="SEARCH">SEARCH</span></button>
+        <button type="submit" :class="buttonClass" :disabled="disabled"><span class="SEARCH">SEARCH</span></button>
       </form>
-      <span>{{option}}{{query}}</span>
     </div>
   </div>
 </template>
@@ -21,10 +20,29 @@ export default {
   data() {
     return {
       option: "People",
-      query: "",
-      placeholder: "e.g. Chewbacca, Yoda, Boba, Fett",
-      disabled: "disabled"
+      query: ""
     };
+  },
+  computed: {
+    placeholder: function() {
+      if (this.option === "People") {
+        return "e.g. Chewbacca, Yoda, Boba, Fett";
+      } else {
+        return "e.g. The Empire Strikes Back";
+      }
+    },
+    disabled: function() {
+      if (this.query === "") {
+        return true;
+      }
+      return false;
+    },
+    buttonClass: function() {
+      if (this.query === "") {
+        return "SearchButton-Disabled";
+      }
+      return "SearchButton-Enabled";
+    }
   }
 };
 </script>
@@ -55,7 +73,8 @@ export default {
 .Ellipse {
   width: 16px;
   height: 16px;
-  background-color: #0094ff;
+  border: solid 1px #c4c4c4;
+  background-color: #ffffff;
 }
 
 .People {
@@ -99,6 +118,14 @@ export default {
   border-radius: 20px;
   border: solid 1px #c4c4c4;
   background-color: #c4c4c4;
+}
+
+.SearchButton-Enabled {
+  width: 350px;
+  height: 34px;
+  border-radius: 20px;
+  border: solid 1px #0ab463;
+  background-color: #0ab463;
 }
 
 .SEARCH {
