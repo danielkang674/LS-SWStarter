@@ -45,4 +45,7 @@ export default {
 </script>
 
 <style>
+.main {
+  background-color: #ededed;
+}
 </style>
