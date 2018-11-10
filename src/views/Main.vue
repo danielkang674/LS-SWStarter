@@ -37,6 +37,7 @@ export default {
       } else {
         console.log("Unknown option");
       }
+      this.searching = false;
       console.log(this.people, this.movies);
     }
   }

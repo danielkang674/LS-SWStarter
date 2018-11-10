@@ -2,8 +2,8 @@
   <div class="MatchesBG">
     <h2 class="Results">Results</h2>
     <div class="divider"></div>
-    <template>
-      <h3 class="There-are-zero-matches-Use-the-form-to-search-for">{{matchState}}</h3>
+    <template v-if="showProgress">
+      <p class="search-progress">{{matchState}}</p>
     </template>
     <People-And-Movies :people="people" :movies="movies"/>
   </div>
@@ -22,10 +22,16 @@ export default {
   },
   computed: {
     matchState: function() {
-      if (this.Searching) {
+      if (this.searching) {
         return "Searching...";
       }
       return "There are zero matches. Use the form to search for People or Movies.";
+    },
+    showProgress: function() {
+      if (this.people.length > 0 || this.movies.length > 0) {
+        return false;
+      }
+      return true;
     }
   }
 };
@@ -60,7 +66,7 @@ export default {
   background-color: #c4c4c4;
 }
 
-.There-are-zero-matches-Use-the-form-to-search-for {
+.search-progress {
   width: 324px;
   height: 35px;
   font-family: Montserrat;

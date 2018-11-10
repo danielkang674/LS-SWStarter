@@ -7,7 +7,7 @@
       <input type="radio" class="Ellipse" id="Movies" v-model="option" value="movies">
       <label for="Movies" class="Movies">Movies</label>
       <input type="text" class="Rectangle" v-model="query" :placeholder="placeholder">
-      <button type="submit" :class="buttonClass" :disabled="disabled"><span class="SEARCH">SEARCH</span></button>
+      <button type="submit" :class="buttonClass" :disabled="disabled"><span class="SEARCH">{{searchProgress}}</span></button>
     </form>
   </div>
 </template>
@@ -40,6 +40,12 @@ export default {
         return "SearchButton-Disabled";
       }
       return "SearchButton-Enabled";
+    },
+    searchProgress: function() {
+      if (this.searching) {
+        return "SEARCHING...";
+      }
+      return "SEARCH";
     }
   },
   methods: {
