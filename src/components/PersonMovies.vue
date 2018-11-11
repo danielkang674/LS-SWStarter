@@ -1,12 +1,14 @@
 <template>
   <ul>
-    <li></li>
+    <li v-for="(movie,idx) in personMovies" :key=idx>
+      {{movie.title}}
+    </li>
   </ul>
 </template>
 <script>
 export default {
   name: "PersonMovies",
-  props: ["movies"]
+  props: ["personMovies"]
 };
 </script>
 

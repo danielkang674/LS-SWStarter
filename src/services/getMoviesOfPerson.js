@@ -1,13 +1,14 @@
 const getMoviesOfPerson = (filmArr) => {
-  return fetch(`${filmArr}?format=json`)
-    .then(data => {
-      return data.json();
-    })
-    .then(data2 => {
-      console.log(data2);
-      return data2;
-    })
-    .catch(console.log);
+  const arr = filmArr.map(movLink => {
+    return fetch(`${movLink}?format=json`)
+      .then(data => {
+        return data.json();
+      })
+      .then(data2 => {
+        return data2;
+      })
+  });
+  return Promise.all(arr).then(vals => vals).catch(console.log);
 };
 
 export default getMoviesOfPerson;

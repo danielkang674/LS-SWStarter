@@ -4,26 +4,27 @@
       <h1 class="person-name">{{attributes.name}}</h1>
       <div id="person-details">
         <h2 class="details">Details</h2>
-        <PersonStats :attributes="attributes"/>
+        <Person-Stats :attributes="attributes"/>
       </div>
       <div id="person-movies">
         <h2 class="details">Movies</h2>
         <div class="divider-person-stats"></div>
-        {{personMovies.title}}
+        <Person-Movies :personMovies="personMovies"/>
       </div>
-    <p>{{$attrs}}</p>
+      <button class="Rectangle-BTS"><span class="BACK-TO-SEARCH">BACK TO SEARCH</span></button>
     </div>
-    <button @click="seeThis()">See this</button>
   </div>
 </template>
 
 <script>
 import PersonStats from "../components/PersonStats";
+import PersonMovies from "../components/PersonMovies";
 import getMoviesOfPerson from "../services/getMoviesOfPerson";
 export default {
   name: "PersonDetails",
   components: {
-    PersonStats
+    PersonStats,
+    PersonMovies
   },
   data() {
     return {
@@ -34,14 +35,10 @@ export default {
   async mounted() {
     try {
       const movies = await getMoviesOfPerson(this.attributes.films);
+      console.log(movies);
       this.personMovies = movies;
     } catch (err) {
       console.log(err);
-    }
-  },
-  methods: {
-    seeThis: function() {
-      console.log(this);
     }
   }
 };
@@ -93,5 +90,26 @@ export default {
   width: 322px;
   height: 1px;
   background-color: #c4c4c4;
+}
+
+.Rectangle-BTS {
+  width: 187px;
+  height: 34px;
+  border-radius: 17px;
+  border: solid 1px #0ab463;
+  background-color: #0ab463;
+}
+
+.BACK-TO-SEARCH {
+  width: 132px;
+  height: 18px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
 }
 </style>
