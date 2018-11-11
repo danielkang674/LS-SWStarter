@@ -2,7 +2,11 @@
   <div>
     <div v-for="(person, idx) in people" :key=idx>
       <span class="result-item">{{person.name}}</span>
-      <button class="Rectangle-21"><router-link :to="{name: 'PersonDetails', params: {person}}"><span class="SEE-DETAILS">SEE DETAILS</span></router-link></button>
+      <button class="Rectangle-21">
+        <router-link :to="{name: 'PersonDetails', params: {person}}">
+          <span class="SEE-DETAILS">SEE DETAILS</span>
+        </router-link>
+      </button>
       <div class="divider"></div>
     </div>
     <div v-for="(movie, idx) in movies" :key=idx>

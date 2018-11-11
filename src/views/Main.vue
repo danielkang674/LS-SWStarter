@@ -30,15 +30,14 @@ export default {
       this.searching = true;
       if (option === "people") {
         const pplData = await getPeopleService(query);
-        this.people = pplData;
+        this.people = pplData.results;
       } else if (option === "movies") {
         const moviesData = await getMoviesService(query);
-        this.movies = moviesData;
+        this.movies = moviesData.results;
       } else {
         console.log("Unknown option");
       }
       this.searching = false;
-      console.log(this.people, this.movies);
     }
   }
 };

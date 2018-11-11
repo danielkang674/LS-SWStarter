@@ -1,8 +1,6 @@
-import apiUrl from '../../config';
-
 const getMoviesService = async (query) => {
   try {
-    const resp = await fetch(`${apiUrl}/api/movies?query=${query}`, {
+    const resp = await fetch(`https://swapi.co/api/films/?search=${query}&formate=json`, {
       method: "GET",
     });
     return resp.json();

@@ -11,7 +11,11 @@
         <div class="divider-person-stats"></div>
         <Person-Movies :personMovies="personMovies"/>
       </div>
-      <button class="Rectangle-BTS"><span class="BACK-TO-SEARCH">BACK TO SEARCH</span></button>
+      <button class="Rectangle-BTS">
+        <router-link :to="{name: 'main'}">
+          <span class="BACK-TO-SEARCH">BACK TO SEARCH</span>
+        </router-link>
+      </button>
     </div>
   </div>
 </template>
