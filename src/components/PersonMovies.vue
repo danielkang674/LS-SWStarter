@@ -1,7 +1,9 @@
 <template>
   <ul>
     <li v-for="(movie,idx) in personMovies" :key=idx>
-      {{movie.title}}
+      <router-link :to="{name: 'MovieDetails', params: {movie}}">
+        {{movie.title}}
+      </router-link>
     </li>
   </ul>
 </template>
