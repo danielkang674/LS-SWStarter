@@ -102,8 +102,6 @@ export default {
 }
 
 .Movies {
-  width: 52px;
-  height: 18px;
   font-family: Montserrat;
   font-size: 14px;
   font-weight: bold;
@@ -142,8 +140,6 @@ export default {
 }
 
 .SEARCH {
-  width: 61px;
-  height: 18px;
   font-family: Montserrat;
   font-size: 14px;
   font-weight: bold;
@@ -176,10 +172,6 @@ input::placeholder {
   margin: 0 0 1rem 1.6rem;
   display: flex;
   align-items: center;
-}
-
-#searchBtn {
-  grid-area: searchBtn;
 }
 
 label {

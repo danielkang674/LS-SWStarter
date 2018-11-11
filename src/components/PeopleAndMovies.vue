@@ -1,12 +1,14 @@
 <template>
-  <div>
+  <div v-if="people.length > 0 || movies.length > 0">
     <div v-for="(person, idx) in people" :key=idx>
+      <div class="result-select">
       <span class="result-item">{{person.name}}</span>
-      <button class="Rectangle-21">
-        <router-link :to="{name: 'PersonDetails', params: {person}}">
+      <router-link :to="{name: 'PersonDetails', params: {person}}">
+        <button class="Rectangle-21">
           <span class="SEE-DETAILS">SEE DETAILS</span>
-        </router-link>
-      </button>
+        </button>
+      </router-link>
+      </div>
       <div class="divider"></div>
     </div>
     <div v-for="(movie, idx) in movies" :key=idx>
@@ -50,6 +52,20 @@ export default {
   background-color: #0ab463;
 }
 
+.Rectangle-21:hover {
+  border: solid 1px #089954;
+  background-color: #089954;
+  cursor: pointer;
+}
+
+.Rectangle-hover {
+  width: 134px;
+  height: 34px;
+  border-radius: 17px;
+  border: solid 1px #089954;
+  background-color: #089954;
+}
+
 .divider {
   width: 522px;
   height: 1px;
@@ -57,8 +73,6 @@ export default {
 }
 
 .result-item {
-  width: 149px;
-  height: 20px;
   font-family: Montserrat;
   font-size: 16px;
   font-weight: bold;
@@ -67,5 +81,15 @@ export default {
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.result-select {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0 0.5rem 0;
 }
 </style>
