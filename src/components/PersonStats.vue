@@ -20,8 +20,7 @@ export default {
 
 <style>
 .person-stats {
-  width: 300px;
-  height: 101px;
+  text-align: left;
   font-family: Montserrat;
   font-size: 14px;
   font-weight: normal;
@@ -30,6 +29,7 @@ export default {
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
+  margin: -0.5rem 0 0 -1.5rem;
 }
 
 ul {

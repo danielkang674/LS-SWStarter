@@ -2,22 +2,24 @@
   <div v-if="people.length > 0 || movies.length > 0">
     <div v-for="(person, idx) in people" :key=idx>
       <div class="result-select">
-      <span class="result-item">{{person.name}}</span>
-      <router-link :to="{name: 'PersonDetails', params: {person}}">
-        <button class="Rectangle-21">
-          <span class="SEE-DETAILS">SEE DETAILS</span>
-        </button>
-      </router-link>
+        <span class="result-item">{{person.name}}</span>
+        <router-link :to="{name: 'PersonDetails', params: {person}}">
+          <button class="Rectangle-21">
+            <span class="SEE-DETAILS">SEE DETAILS</span>
+          </button>
+        </router-link>
       </div>
       <div class="divider"></div>
     </div>
     <div v-for="(movie, idx) in movies" :key=idx>
-      <span class="result-item">{{movie.title}}</span>
-      <button class="Rectangle-21">
+      <div class="result-select">
+        <span class="result-item">{{movie.title}}</span>
         <router-link :to="{name:'MovieDetails', params:{movie}}">
-        <span class="SEE-DETAILS">SEE DETAILS</span>
+          <button class="Rectangle-21">
+            <span class="SEE-DETAILS">SEE DETAILS</span>
+          </button>
         </router-link>
-      </button>
+      </div>
       <div class="divider"></div>
     </div>
   </div>

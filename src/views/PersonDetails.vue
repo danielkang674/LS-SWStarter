@@ -4,6 +4,7 @@
       <h1 class="person-name">{{attributes.name}}</h1>
       <div id="person-details">
         <h2 class="details">Details</h2>
+        <div class="divider-person-stats"></div>
         <Person-Stats :attributes="attributes"/>
       </div>
       <div id="person-movies">
@@ -11,11 +12,13 @@
         <div class="divider-person-stats"></div>
         <Person-Movies :personMovies="personMovies"/>
       </div>
-      <button class="Rectangle-BTS">
+      <div id="person-router">
         <router-link :to="{name: 'main'}">
-          <span class="BACK-TO-SEARCH">BACK TO SEARCH</span>
+          <button class="Rectangle-BTS">
+              <span class="BACK-TO-SEARCH">BACK TO SEARCH</span>
+          </button>
         </router-link>
-      </button>
+      </div>
     </div>
   </div>
 </template>
@@ -39,7 +42,6 @@ export default {
   async mounted() {
     try {
       const movies = await getMoviesOfPerson(this.attributes.films);
-      console.log(movies);
       this.personMovies = movies;
     } catch (err) {
       console.log(err);
@@ -49,10 +51,13 @@ export default {
 </script>
 
 <style>
-.person-details {
-  width: 1440px;
-  height: 900px;
+div.person-details {
+  width: auto;
+  height: 88vh;
   background-color: #ededed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .DetailsBG {
@@ -62,11 +67,18 @@ export default {
   box-shadow: 0 1px 2px 0 rgba(132, 132, 132, 0.75);
   border: solid 1px #dadada;
   background-color: #ffffff;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1rem 1fr 90px 1fr;
+  grid-template-rows: 20% 60% 20%;
+  grid-template-areas:
+    ". name . ."
+    ". details . movies"
+    ". router . .";
 }
 
 .person-name {
-  width: 200px;
-  height: 22px;
+  text-align: left;
   font-family: Montserrat;
   font-size: 18px;
   font-weight: bold;
@@ -75,6 +87,8 @@ export default {
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
+  grid-area: name;
+  margin: 2rem 0 0 1rem;
 }
 
 .details {
@@ -94,6 +108,7 @@ export default {
   width: 322px;
   height: 1px;
   background-color: #c4c4c4;
+  margin-left: 1rem;
 }
 
 .Rectangle-BTS {
@@ -102,11 +117,10 @@ export default {
   border-radius: 17px;
   border: solid 1px #0ab463;
   background-color: #0ab463;
+  margin-left: 1rem;
 }
 
 .BACK-TO-SEARCH {
-  width: 132px;
-  height: 18px;
   font-family: Montserrat;
   font-size: 14px;
   font-weight: bold;
@@ -115,5 +129,18 @@ export default {
   line-height: normal;
   letter-spacing: normal;
   color: #ffffff;
+}
+
+#person-details {
+  grid-area: details;
+}
+
+#person-movies {
+  grid-area: movies;
+}
+
+#person-router {
+  grid-area: router;
+  display: flex;
 }
 </style>

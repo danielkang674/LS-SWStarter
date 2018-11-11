@@ -50,7 +50,7 @@ export default {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 2rem;
   grid-template-areas: ". SearchContainer MatchesBG .";
-  height: 850px;
+  height: 88vh;
 }
 
 .SearchContainer {

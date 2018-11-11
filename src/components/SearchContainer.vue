@@ -177,4 +177,16 @@ input::placeholder {
 label {
   padding-top: 0.1rem;
 }
+
+input[type="text"].Rectangle {
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #383838;
+  padding-left: 0.7rem;
+}
 </style>
