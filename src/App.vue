@@ -14,6 +14,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin: auto;
   margin-top: 60px;
   max-width: 1440px;
   max-height: 900px;
@@ -27,8 +28,7 @@ header {
 }
 
 .SWStarter {
-  width: 98px;
-  height: 22px;
+  text-align: center;
   font-family: Montserrat;
   font-size: 18px;
   font-weight: bold;

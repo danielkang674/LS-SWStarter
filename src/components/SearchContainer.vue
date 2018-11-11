@@ -1,13 +1,15 @@
 <template>
   <div class="SearchContainer">
-    <p class="What-are-you-searching-for">What are you searching for?</p>
+    <p class="search-container-title">What are you searching for?</p>
     <form v-on:submit.prevent="SWFormSubmit()">
+      <div id="radioBtns">
       <input type="radio" class="Ellipse" id="People" v-model="option" value="people">
       <label for="People" class="People">People</label>
       <input type="radio" class="Ellipse" id="Movies" v-model="option" value="movies">
       <label for="Movies" class="Movies">Movies</label>
+      </div>
       <input type="text" class="Rectangle" v-model="query" :placeholder="placeholder">
-      <button type="submit" :class="buttonClass" :disabled="disabled"><span class="SEARCH">{{searchProgress}}</span></button>
+      <button id="searchBtn" type="submit" :class="buttonClass" :disabled="disabled"><span class="SEARCH">{{searchProgress}}</span></button>
     </form>
   </div>
 </template>
@@ -60,15 +62,15 @@ export default {
 .SearchContainer {
   width: 410px;
   height: 230px;
+  margin-top: 2rem;
   border-radius: 4px;
   box-shadow: 0 1px 2px 0 rgba(132, 132, 132, 0.75);
   border: solid 1px #dadada;
   background-color: #ffffff;
 }
 
-.What-are-you-searching-for {
-  width: 205px;
-  height: 18px;
+.search-container-title {
+  text-align: left;
   font-family: Montserrat;
   font-size: 14px;
   font-weight: 600;
@@ -77,6 +79,7 @@ export default {
   line-height: normal;
   letter-spacing: normal;
   color: #383838;
+  margin: 2rem 0 1rem 2rem;
 }
 
 .Ellipse {
@@ -87,8 +90,6 @@ export default {
 }
 
 .People {
-  width: 51px;
-  height: 18px;
   font-family: Montserrat;
   font-size: 14px;
   font-weight: bold;
@@ -97,6 +98,7 @@ export default {
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
+  margin: 0 2rem 0 0.3rem;
 }
 
 .Movies {
@@ -110,6 +112,7 @@ export default {
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
+  margin-left: 0.3rem;
 }
 
 .Rectangle {
@@ -119,6 +122,7 @@ export default {
   box-shadow: inset 0 1px 3px 0 rgba(132, 132, 132, 0.75);
   border: solid 1px #c4c4c4;
   background-color: #ffffff;
+  margin-bottom: 1rem;
 }
 
 .SearchButton-Disabled {
@@ -151,8 +155,6 @@ export default {
 }
 
 input::placeholder {
-  width: 239px;
-  height: 18px;
   font-family: Montserrat;
   font-size: 14px;
   font-weight: bold;
@@ -161,10 +163,26 @@ input::placeholder {
   line-height: normal;
   letter-spacing: normal;
   color: #c4c4c4;
+  padding-left: 1rem;
 }
 
 .text-cursor {
   width: 8px;
   height: 23px;
+}
+
+#radioBtns {
+  text-align: left;
+  margin: 0 0 1rem 1.6rem;
+  display: flex;
+  align-items: center;
+}
+
+#searchBtn {
+  grid-area: searchBtn;
+}
+
+label {
+  padding-top: 0.1rem;
 }
 </style>

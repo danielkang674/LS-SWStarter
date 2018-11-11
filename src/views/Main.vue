@@ -46,5 +46,18 @@ export default {
 <style>
 .main {
   background-color: #ededed;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 2rem;
+  grid-template-areas: ". SearchContainer MatchesBG .";
+  height: 850px;
+}
+
+.SearchContainer {
+  grid-area: SearchContainer;
+}
+
+.MatchesBG {
+  grid-area: MatchesBG;
 }
 </style>
