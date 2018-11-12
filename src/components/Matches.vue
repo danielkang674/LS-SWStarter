@@ -4,8 +4,7 @@
     <div class="divider"></div>
     <template v-if="showProgress">
       <div class="search-progress">
-        {{matchState.s1}}<br />
-        {{matchState.s2}}
+        <span style="white-space: pre;">{{matchState}}</span>
       </div>
     </template>
     <People-And-Movies :people="people" :movies="movies"/>
@@ -26,12 +25,9 @@ export default {
   computed: {
     matchState: function() {
       if (this.searching) {
-        return { s1: "Searching...", s2: "" };
+        return "Searching...";
       }
-      return {
-        s1: "There are zero matches.",
-        s2: "Use the form to search for People or Movies."
-      };
+      return "There are zero matches.\r\n Use the form to search for People or Movies.";
     },
     showProgress: function() {
       if (this.people.length > 0 || this.movies.length > 0) {
@@ -79,8 +75,6 @@ export default {
 }
 
 div.search-progress {
-  width: 324px;
-  height: 35px;
   font-family: Montserrat;
   font-size: 14px;
   font-weight: bold;
@@ -89,7 +83,7 @@ div.search-progress {
   line-height: normal;
   letter-spacing: normal;
   color: #c4c4c4;
-  align-self: center;
   margin-top: 40%;
+  align-self: center;
 }
 </style>
