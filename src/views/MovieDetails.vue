@@ -1,17 +1,17 @@
 <template>
-  <div class="person-details">
-    <div class="DetailsBG">
-      <h1 class="person-name">{{attributes.title}}</h1>
-      <div id="person-details">
-        <h2 class="details">Opening Crawl</h2>
-        <div class="divider-person-stats"></div>
+  <div class="movie-details">
+    <div class="Movie-DetailsBG">
+      <h1 class="movie-name">{{attributes.title}}</h1>
+      <div id="movie-details">
+        <h2 class="opening-crawl">Opening Crawl</h2>
+        <div class="divider-crawl"></div>
         <div class="opening-crawl-container">
           {{attributes.opening_crawl}}
         </div>
       </div>
-      <div id="person-movies">
-        <h2 class="details">Characters</h2>
-        <div class="divider-person-stats"></div>
+      <div id="movie-chars">
+        <h2 class="opening-crawl">Characters</h2>
+        <div class="divider-crawl"></div>
         <div class="char-container">
           <span v-for="(char,idx) in allChars" :key="idx">
             <router-link :to="{name: 'PersonDetails', params:{person:char}}">
@@ -20,11 +20,13 @@
           </span>
         </div>
       </div>
-      <button class="Rectangle-BTS">
+      <div class="movie-BTS-container">
         <router-link :to="{name: 'main'}">
-          <span class="BACK-TO-SEARCH">BACK TO SEARCH</span>
+          <button class="Rectangle-BTS-Movie">
+            <span class="BACK-TO-SEARCH">BACK TO SEARCH</span>
+          </button>
         </router-link>
-      </button>
+      </div>
     </div>
   </div>
 </template>
@@ -43,7 +45,6 @@ export default {
   async mounted() {
     try {
       const chars = await getCharsOfMovieService(this.attributes.characters);
-      console.log(chars);
       this.allChars = chars;
     } catch (err) {
       console.log(err);
@@ -53,24 +54,34 @@ export default {
 </script>
 
 <style>
-.person-details {
-  width: 1440px;
-  height: 900px;
+.movie-details {
+  width: 100%;
+  height: 88vh;
   background-color: #ededed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.DetailsBG {
+.Movie-DetailsBG {
   width: 804px;
-  height: 417px;
+  height: 537px;
   border-radius: 4px;
   box-shadow: 0 1px 2px 0 rgba(132, 132, 132, 0.75);
   border: solid 1px #dadada;
   background-color: #ffffff;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 2rem 1fr 90px 1fr;
+  grid-template-rows: 15% 73% 12%;
+  grid-template-areas:
+    ". movie-name . ."
+    ". movie-details . movie-chars"
+    ". movie-BTS-container . .";
 }
 
-.person-name {
-  width: 200px;
-  height: 22px;
+.movie-name {
+  text-align: left;
   font-family: Montserrat;
   font-size: 18px;
   font-weight: bold;
@@ -79,11 +90,14 @@ export default {
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
+  grid-area: movie-name;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
 }
 
-.details {
-  width: 94px;
-  height: 20px;
+.opening-crawl {
+  text-align: left;
   font-family: Montserrat;
   font-size: 16px;
   font-weight: bold;
@@ -94,13 +108,13 @@ export default {
   color: #000000;
 }
 
-.divider-person-stats {
+.divider-crawl {
   width: 322px;
   height: 1px;
   background-color: #c4c4c4;
 }
 
-.Rectangle-BTS {
+.Rectangle-BTS-Movie {
   width: 187px;
   height: 34px;
   border-radius: 17px;
@@ -108,9 +122,13 @@ export default {
   background-color: #0ab463;
 }
 
+.Rectangle-BTS-Movie:hover {
+  border: solid 1px #089954;
+  background-color: #089954;
+  cursor: pointer;
+}
+
 .BACK-TO-SEARCH {
-  width: 132px;
-  height: 18px;
   font-family: Montserrat;
   font-size: 14px;
   font-weight: bold;
@@ -122,6 +140,7 @@ export default {
 }
 
 .opening-crawl-container {
+  text-align: left;
   width: 220px;
   height: 325px;
   font-family: Montserrat;
@@ -132,11 +151,13 @@ export default {
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
+  margin-top: 0.5rem;
 }
 
 .char-container {
+  text-align: left;
   width: 322px;
-  height: 124px;
+  max-height: 325px;
   font-family: Montserrat;
   font-size: 14px;
   font-weight: normal;
@@ -145,8 +166,22 @@ export default {
   line-height: normal;
   letter-spacing: normal;
   color: #0094ff;
+  margin-top: 0.5rem;
 }
-.char-container .text-style-1 {
-  color: #383838;
+
+a {
+  color: #0094ff;
+}
+
+#movie-details {
+  grid-area: movie-details;
+}
+
+#movie-chars {
+  grid-area: movie-chars;
+}
+.movie-BTS-container {
+  grid-area: movie-BTS-container;
+  display: flex;
 }
 </style>

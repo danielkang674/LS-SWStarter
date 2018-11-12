@@ -17,6 +17,6 @@ export default {
 <style>
 ul.person-details-list {
   text-align: left;
-  margin: 0.3rem 0 0 -1.2rem;
+  margin: 0.3rem 0 0 -1.4rem;
 }
 </style>

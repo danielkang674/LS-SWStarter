@@ -14,7 +14,7 @@
       </div>
       <div id="person-router">
         <router-link :to="{name: 'main'}">
-          <button class="Rectangle-BTS">
+          <button class="Rectangle-BTS-Person">
               <span class="BACK-TO-SEARCH">BACK TO SEARCH</span>
           </button>
         </router-link>
@@ -52,7 +52,7 @@ export default {
 
 <style>
 div.person-details {
-  width: auto;
+  width: 100%;
   height: 88vh;
   background-color: #ededed;
   display: flex;
@@ -92,8 +92,7 @@ div.person-details {
 }
 
 .details {
-  width: 59px;
-  height: 20px;
+  text-align: left;
   font-family: Montserrat;
   font-size: 16px;
   font-weight: bold;
@@ -102,6 +101,7 @@ div.person-details {
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
+  margin-left: 1rem;
 }
 
 .divider-person-stats {
@@ -111,13 +111,19 @@ div.person-details {
   margin-left: 1rem;
 }
 
-.Rectangle-BTS {
+.Rectangle-BTS-Person {
   width: 187px;
   height: 34px;
   border-radius: 17px;
   border: solid 1px #0ab463;
   background-color: #0ab463;
   margin-left: 1rem;
+}
+
+.Rectangle-BTS-Person:hover {
+  border: solid 1px #089954;
+  background-color: #089954;
+  cursor: pointer;
 }
 
 .BACK-TO-SEARCH {
@@ -142,5 +148,9 @@ div.person-details {
 #person-router {
   grid-area: router;
   display: flex;
+}
+
+a.router-link-active {
+  height: 34px;
 }
 </style>

@@ -139,6 +139,12 @@ export default {
   background-color: #0ab463;
 }
 
+.SearchButton-Enabled:hover {
+  border: solid 1px #089954;
+  background-color: #089954;
+  cursor: pointer;
+}
+
 .SEARCH {
   font-family: Montserrat;
   font-size: 14px;

@@ -60,14 +60,6 @@ export default {
   cursor: pointer;
 }
 
-.Rectangle-hover {
-  width: 134px;
-  height: 34px;
-  border-radius: 17px;
-  border: solid 1px #089954;
-  background-color: #089954;
-}
-
 .divider {
   width: 522px;
   height: 1px;
