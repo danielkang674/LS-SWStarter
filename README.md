@@ -1,4 +1,4 @@
-# boilerplate-vue
+# Star Wars Coding Exercise
 
 ## Project setup
 ```
