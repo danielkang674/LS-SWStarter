@@ -6,16 +6,16 @@
         <h2 class="opening-crawl">Opening Crawl</h2>
         <div class="divider-crawl"></div>
         <div class="opening-crawl-container">
-          {{attributes.opening_crawl}}
+          <span style="white-space: pre;">{{attributes.opening_crawl}}</span>
         </div>
       </div>
       <div id="movie-chars">
         <h2 class="opening-crawl">Characters</h2>
         <div class="divider-crawl"></div>
         <div class="char-container">
-          <span v-for="(char,idx) in allChars" :key="idx">
+          <span v-for="(char,idx) in allChars" :key="idx" class="router-chars">
             <router-link :to="{name: 'PersonDetails', params:{person:char}}">
-              {{char.name}}
+              {{char.name}}<span v-if="idx < lastCharIdx">,</span>
             </router-link>
           </span>
         </div>
@@ -41,6 +41,11 @@ export default {
       attributes: this.$attrs.movie,
       allChars: []
     };
+  },
+  computed: {
+    lastCharIdx: function() {
+      return this.allChars.length - 1;
+    }
   },
   async mounted() {
     try {
@@ -73,7 +78,7 @@ export default {
   margin-top: 2rem;
   display: grid;
   grid-template-columns: 2rem 1fr 90px 1fr;
-  grid-template-rows: 15% 73% 12%;
+  grid-template-rows: 10% 80% 10%;
   grid-template-areas:
     ". movie-name . ."
     ". movie-details . movie-chars"
@@ -171,6 +176,10 @@ export default {
 
 a {
   color: #0094ff;
+}
+
+span.router-chars > a {
+  text-decoration: none;
 }
 
 #movie-details {
