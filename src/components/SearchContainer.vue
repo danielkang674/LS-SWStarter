@@ -195,4 +195,22 @@ input[type="text"].Rectangle {
   color: #383838;
   padding-left: 0.7rem;
 }
+
+@media (max-width: 500px) {
+  .SearchContainer {
+    width: auto;
+    margin-right: 15px;
+  }
+  .Rectangle {
+    width: auto;
+    min-width: 90%;
+  }
+  #searchBtn {
+    width: auto;
+    min-width: 90%;
+  }
+  #radioBtns {
+    justify-content: flex-start;
+  }
+}
 </style>

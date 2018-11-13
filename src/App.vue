@@ -61,4 +61,11 @@ header {
 .fade-leave-active {
   opacity: 0;
 }
+
+@media (max-width: 500px) {
+  header {
+    width: 100vw;
+    min-width: 350px;
+  }
+}
 </style>

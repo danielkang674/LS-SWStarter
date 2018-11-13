@@ -60,4 +60,17 @@ export default {
 .MatchesBG {
   grid-area: MatchesBG;
 }
+
+@media (max-width: 500px) {
+  .main {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas:
+      "SearchContainer"
+      "MatchesBG";
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
 </style>
