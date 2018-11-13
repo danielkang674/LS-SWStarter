@@ -3,7 +3,9 @@
     <header>
       <h1 class="SWStarter">SWStarter</h1>
     </header>
-    <router-view/>
+    <transition name="fade" mode="out-in">
+      <router-view/>
+    </transition>
   </div>
 </template>
 
@@ -49,5 +51,14 @@ header {
   line-height: normal;
   letter-spacing: normal;
   color: #0ab463;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
 }
 </style>

@@ -10,7 +10,9 @@
       <div id="person-movies">
         <h2 class="details">Movies</h2>
         <div class="divider-person-stats"></div>
-        <span class="loading-msg" v-if="!personMovies.length">Loading...</span>
+        <div class="loading-msg-container" v-if="!personMovies.length">
+          <span class="loading-msg">Loading...</span>
+        </div>
         <Person-Movies :personMovies="personMovies"/>
       </div>
       <div id="person-router">

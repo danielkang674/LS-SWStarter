@@ -12,7 +12,9 @@
       <div id="movie-chars">
         <h2 class="opening-crawl">Characters</h2>
         <div class="divider-crawl"></div>
-        <span class="loading-msg" v-if="!allChars.length">Loading...</span>
+        <div class="loading-msg-container" v-if="!allChars.length">
+          <span class="loading-msg">Loading...</span>
+        </div>
         <div class="char-container">
           <span v-for="(char,idx) in allChars" :key="idx" class="router-chars">
             <router-link :to="{name: 'PersonDetails', params:{person:char}}">
@@ -195,7 +197,7 @@ span.router-chars > a {
   display: flex;
 }
 
-.loading-msg {
+span.loading-msg {
   font-family: Montserrat;
   font-size: 14px;
   font-weight: bold;
@@ -204,5 +206,9 @@ span.router-chars > a {
   line-height: normal;
   letter-spacing: normal;
   color: #c4c4c4;
+}
+
+.loading-msg-container {
+  margin-top: 30%;
 }
 </style>

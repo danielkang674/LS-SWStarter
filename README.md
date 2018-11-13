@@ -1,5 +1,8 @@
 # Star Wars Coding Exercise
 
+## Personal Usage
+I personally used ``` npm run serve ``` for this exercise
+
 ## Project setup
 ```
 yarn install
