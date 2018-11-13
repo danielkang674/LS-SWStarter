@@ -38,7 +38,7 @@ header {
   flex-direction: column;
   align-content: center;
   overflow: hidden;
-  margin: -0.5rem 0 0 -0.5rem;
+  margin: -10px 0 0 -10px;
 }
 
 .SWStarter {
