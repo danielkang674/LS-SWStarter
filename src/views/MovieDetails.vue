@@ -71,7 +71,7 @@ export default {
 
 .Movie-DetailsBG {
   width: 804px;
-  height: 537px;
+  height: 567px;
   border-radius: 4px;
   box-shadow: 0 1px 2px 0 rgba(132, 132, 132, 0.75);
   border: solid 1px #dadada;

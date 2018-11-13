@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     placeholder: function() {
-      if (this.option === "People") {
+      if (this.option === "people") {
         return "e.g. Chewbacca, Yoda, Boba, Fett";
       }
       return "e.g. The Empire Strikes Back";
